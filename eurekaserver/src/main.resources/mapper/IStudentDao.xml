@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="eureka.dao.IStudentDao">
+	<select id="queryStudentInfo" resultType="eureka.entity.Student">
+		select t.id,
+		t.age,t.name from student_t t where t.id = #{id,jdbcType=NUMERIC}
+	</select>
+
+	<insert id="insertStudent">
+		insert into student_t
+		(
+		id,
+		age,
+		name
+		)
+		values
+		(
+		student_s.nextval,
+		#{student.age,jdbcType=NUMERIC},
+		#{student.name,jdbcType=VARCHAR}
+		)
+
+	</insert>
+</mapper>
